@@ -10,4 +10,4 @@
 # Alguns Comandos python
 * pip freeze > requirements.txt
 
-PYTHONPATH=/home/alexsandro/personal_workspace/KaraTech/backend/api uvicorn main:app
+PYTHONPATH=/home/adriana/workspace/Karatech/backend/api uvicorn main:app
