@@ -2,8 +2,11 @@ import uvicorn
 from fastapi import FastAPI
 
 from database import db
+from routers import user_router, technique_router
 
-def init_app():
+
+def init_app()-> FastAPI:
+
     db.init()
 
     app = FastAPI(
@@ -20,9 +23,8 @@ def init_app():
     async def shutdown():
         await db.close()
 
-    from routers import user_router
-
-    app.include_router(user_router.router)
+    app.include_router(user_router.router, prefix="/users", tags=["Users"])
+    app.include_router(technique_router.router, prefix="/techniques", tags=["Techniques"])
 
     return app
 

@@ -1,10 +1,8 @@
-from sqlalchemy import Boolean, Column, Integer, String
-
+from sqlalchemy import Column, Integer, String
 from database import Base
 
-
 class Technique(Base):
-    __tablename__ = "technique"
+    __tablename__ = "techniques"
 
-    id = Column(Integer, primary_key=True)
-    name = Column(String)
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String, unique=True, nullable=False)
